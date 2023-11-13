@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApplication());
+  runApp(const MyApplication());
 }
 
 class MyApplication extends StatefulWidget {
-  MyApplication({super.key});
+  const MyApplication({super.key});
 
   @override
   State<MyApplication> createState() => _MyApplicationState();
@@ -16,64 +16,69 @@ class _MyApplicationState extends State<MyApplication> {
 
   @override
   Widget build(BuildContext context) {
+    var mediaQuery = MediaQuery.of(context).size;
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         backgroundColor: Colors.white,
         body: Padding(
-          padding: const EdgeInsets.only(top: 45, left: 10, right: 10),
+          padding: EdgeInsets.only(
+              top: mediaQuery.width * .1,
+              left: mediaQuery.width * .02,
+              right: mediaQuery.width * .02),
           child: Column(
             children: [
               Row(
                 children: [
                   Icon(
                     Icons.arrow_back,
-                    size: 24,
+                    size: mediaQuery.width * .07,
                     color: Color(0xFF004182),
                   ),
-                  SizedBox(width: 130),
+                  SizedBox(width: mediaQuery.width * .35),
                   Text(
                     "Cart",
                     style: TextStyle(
                       color: Color(0xFF004182),
-                      fontSize: 22,
+                      fontSize: mediaQuery.width * .07,
                       fontWeight: FontWeight.w600,
                       fontStyle: FontStyle.normal,
                     ),
                   ),
                   SizedBox(
-                    width: 75,
+                    width: mediaQuery.width * .20,
                   ),
                   Icon(
                     Icons.search,
-                    size: 24,
+                    size: mediaQuery.width * .07,
                     color: Color(0xFF004182),
                   ),
                   SizedBox(
-                    width: 20,
+                    width: mediaQuery.width * .06,
                   ),
                   Icon(
                     Icons.shopping_cart_outlined,
-                    size: 24,
+                    size: mediaQuery.width * .07,
                     color: Color(0xFF004182),
                   )
                 ],
               ),
-              Expanded(
+              Container(
+                height: mediaQuery.height * .75,
                 child: ListView(
                   children: [
                     Container(
-                      width: 398,
-                      height: 113,
+                      width: mediaQuery.width * .55,
+                      height: mediaQuery.height * .15,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(25),
-                          border: Border.fromBorderSide(
+                          border: const Border.fromBorderSide(
                               BorderSide(color: Color(0xFF004182)))),
                       child: Row(
                         children: [
-                          Image(
+                          const Image(
                             image: AssetImage("assets/images/img.png"),
-                            fit: BoxFit.fitHeight,
+                            fit: BoxFit.cover,
                           ),
                           Column(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -81,7 +86,7 @@ class _MyApplicationState extends State<MyApplication> {
                               Text(
                                 "Nike Air Jordon",
                                 style: TextStyle(
-                                    fontSize: 18,
+                                    fontSize: mediaQuery.width * .05,
                                     fontWeight: FontWeight.w500,
                                     fontStyle: FontStyle.normal),
                               ),
@@ -90,7 +95,7 @@ class _MyApplicationState extends State<MyApplication> {
                                   Image(
                                     image:
                                         AssetImage("assets/images/img_1.png"),
-                                    width: 15,
+                                    width: mediaQuery.width * .04,
                                   ),
                                   Text("  Orange Size: 40"),
                                 ],
@@ -98,7 +103,7 @@ class _MyApplicationState extends State<MyApplication> {
                               Text(
                                 "EGP 3,500",
                                 style: TextStyle(
-                                    fontSize: 18,
+                                    fontSize: mediaQuery.width * .05,
                                     fontWeight: FontWeight.w500,
                                     fontStyle: FontStyle.normal),
                               )
@@ -108,35 +113,37 @@ class _MyApplicationState extends State<MyApplication> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Padding(
-                                padding: const EdgeInsets.only(left: 55),
+                                padding: EdgeInsets.only(
+                                    left: mediaQuery.width * .2),
                                 child: Icon(
                                   Icons.delete,
-                                  size: 30,
+                                  size: mediaQuery.width * .08,
                                 ),
                               ),
                               Container(
-                                width: 95,
-                                height: 42,
+                                width: mediaQuery.width * .5 / 2,
+                                height: mediaQuery.height * .05,
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(20),
-                                    color: Color(0xFF004182)),
+                                    color: const Color(0xFF004182)),
                                 child: Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceAround,
                                   children: [
                                     InkWell(
                                         onTap: onPlus,
-                                        child: Icon(
+                                        child: const Icon(
                                           Icons.remove_circle_outline,
                                           color: Colors.white,
                                         )),
                                     Text(
                                       "$counter",
-                                      style: TextStyle(color: Colors.white),
+                                      style:
+                                          const TextStyle(color: Colors.white),
                                     ),
                                     InkWell(
                                         onTap: onAdd,
-                                        child: Icon(
+                                        child: const Icon(
                                           Icons.add_circle_outline,
                                           color: Colors.white,
                                         )),
@@ -148,21 +155,21 @@ class _MyApplicationState extends State<MyApplication> {
                         ],
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                     Container(
-                      width: 398,
-                      height: 113,
+                      width: mediaQuery.width * .55,
+                      height: mediaQuery.height * .15,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(25),
-                          border: Border.fromBorderSide(
+                          border: const Border.fromBorderSide(
                               BorderSide(color: Color(0xFF004182)))),
                       child: Row(
                         children: [
-                          Image(
+                          const Image(
                             image: AssetImage("assets/images/img.png"),
-                            fit: BoxFit.fitHeight,
+                            fit: BoxFit.cover,
                           ),
                           Column(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -170,7 +177,7 @@ class _MyApplicationState extends State<MyApplication> {
                               Text(
                                 "Nike Air Jordon",
                                 style: TextStyle(
-                                    fontSize: 18,
+                                    fontSize: mediaQuery.width * .05,
                                     fontWeight: FontWeight.w500,
                                     fontStyle: FontStyle.normal),
                               ),
@@ -179,7 +186,7 @@ class _MyApplicationState extends State<MyApplication> {
                                   Image(
                                     image:
                                         AssetImage("assets/images/img_1.png"),
-                                    width: 15,
+                                    width: mediaQuery.width * .04,
                                   ),
                                   Text("  Orange Size: 40"),
                                 ],
@@ -187,7 +194,7 @@ class _MyApplicationState extends State<MyApplication> {
                               Text(
                                 "EGP 3,500",
                                 style: TextStyle(
-                                    fontSize: 18,
+                                    fontSize: mediaQuery.width * .05,
                                     fontWeight: FontWeight.w500,
                                     fontStyle: FontStyle.normal),
                               )
@@ -197,35 +204,37 @@ class _MyApplicationState extends State<MyApplication> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Padding(
-                                padding: const EdgeInsets.only(left: 55),
+                                padding: EdgeInsets.only(
+                                    left: mediaQuery.width * .2),
                                 child: Icon(
                                   Icons.delete,
-                                  size: 30,
+                                  size: mediaQuery.width * .08,
                                 ),
                               ),
                               Container(
-                                width: 95,
-                                height: 42,
+                                width: mediaQuery.width * .5 / 2,
+                                height: mediaQuery.height * .05,
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(20),
-                                    color: Color(0xFF004182)),
+                                    color: const Color(0xFF004182)),
                                 child: Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceAround,
                                   children: [
                                     InkWell(
                                         onTap: onPlus,
-                                        child: Icon(
+                                        child: const Icon(
                                           Icons.remove_circle_outline,
                                           color: Colors.white,
                                         )),
                                     Text(
                                       "$counter",
-                                      style: TextStyle(color: Colors.white),
+                                      style:
+                                          const TextStyle(color: Colors.white),
                                     ),
                                     InkWell(
                                         onTap: onAdd,
-                                        child: Icon(
+                                        child: const Icon(
                                           Icons.add_circle_outline,
                                           color: Colors.white,
                                         )),
@@ -239,6 +248,54 @@ class _MyApplicationState extends State<MyApplication> {
                     ),
                   ],
                 ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Column(
+                    children: [
+                      Text(
+                        "Total price",
+                        style: TextStyle(fontSize: mediaQuery.width * .05),
+                      ),
+                      SizedBox(
+                        height: mediaQuery.height * .01,
+                      ),
+                      Text(
+                        "EGP 3,500",
+                        style: TextStyle(
+                            fontSize: mediaQuery.width * .05,
+                            fontWeight: FontWeight.w500,
+                            fontStyle: FontStyle.normal),
+                      ),
+                    ],
+                  ),
+                  Container(
+                    width: mediaQuery.width * .6,
+                    height: mediaQuery.height * .06,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        color: const Color(0xFF004182)),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Text(
+                          "Check Out",
+                          style: TextStyle(
+                            fontSize: mediaQuery.width * .05,
+                            fontWeight: FontWeight.w500,
+                            fontStyle: FontStyle.normal,
+                            color: Colors.white,
+                          ),
+                        ),
+                        Icon(
+                          Icons.arrow_forward,
+                          color: Colors.white,
+                        )
+                      ],
+                    ),
+                  )
+                ],
               )
             ],
           ),
